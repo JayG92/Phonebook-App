@@ -1,2 +1,2 @@
 # Phonebook-App
-Simple Phonebook App with JS (CRUD)
+Simple Phonebook App with React.js (CRUD)
