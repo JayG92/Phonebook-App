@@ -1,11 +1,5 @@
 # Phonebook-App
-<<<<<<< HEAD
- Building a Simple Phonebook App with React.js (CRUD)
-
-
-=======
 Simple Phonebook App with React.js (CRUD)
->>>>>>> 05f71277fac7b546644b4d9b2612059b0f380ae7
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

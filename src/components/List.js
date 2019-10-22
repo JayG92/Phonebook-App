@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import "./List.css";
+import PropTypes from "prop-types";
 
 export default class List extends Component {
+  static propTypes = {
+    contacts: PropTypes.array.isRequired
+  };
   render() {
+    console.log("Incoming props", this.props);
     return (
       <div className={"listArea"}>
         <input
@@ -11,26 +16,15 @@ export default class List extends Component {
           placeholder={"Filter by name or phone number"}
         />
         <ul className={"list"}>
-          <li>
-            <span className={"name"}> Jay guevara </span>
-            <span className={"phone"}> 555-555-5555 </span>
-            <span className={"clearfix"}></span>
-          </li>
-          <li>
-            <span className={"name"}> Michael Jordan </span>
-            <span className={"phone"}> 555-555-5555 </span>
-            <span className={"clearfix"}></span>
-          </li>
-          <li>
-            <span className={"name"}> Larry Bird </span>
-            <span className={"phone"}> 555-555-5555 </span>
-            <span className={"clearfix"}></span>
-          </li>
-          <li>
-            <span className={"name"}> Bo Jackson </span>
-            <span className={"phone"}> 555-555-5555 </span>
-            <span className={"clearfix"}></span>
-          </li>
+          {this.props.contacts.map(contact => {
+            return (
+              <li key={contact.phone}>
+                <span className={"name"}>{contact.name}</span>
+                <span className={"phone"}>{contact.phone}</span>
+                <span className={"clearfix"}></span>
+              </li>
+            );
+          })}
         </ul>
       </div>
     );
