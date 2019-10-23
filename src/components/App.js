@@ -1,12 +1,26 @@
-import React from 'react';
-import Contacts from './Contacts';
-import './App.css';
+import React, { Component } from "react";
+import Contacts from "./Contacts";
+import "./App.css";
 
-function App() {
-  return (
-  <div className="Phonebook App">
-    <Contacts />
-  </div>
-  );
+class App extends Component {
+  state = {
+    contact: [
+      {
+        name: "Stephen Curry",
+        phone: "415-555-5555"
+      },
+      {
+        name: "Klay Thompson",
+        phone: "510-555-5555"
+      }
+    ]
+  };
+  render() {
+    return (
+      <div className="Phonebook App">
+        <Contacts />
+      </div>
+    );
+  }
 }
 export default App;

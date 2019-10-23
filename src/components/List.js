@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 export default class List extends Component {
   static propTypes = {
-    contacts: PropTypes.array.isRequired
+    contact: PropTypes.array.isRequired
   };
   render() {
     console.log("Incoming props", this.props);
@@ -16,15 +16,13 @@ export default class List extends Component {
           placeholder={"Filter by name or phone number"}
         />
         <ul className={"list"}>
-          {this.props.contacts.map(contact => {
-            return (
-              <li key={contact.phone}>
-                <span className={"name"}>{contact.name}</span>
-                <span className={"phone"}>{contact.phone}</span>
-                <span className={"clearfix"}></span>
-              </li>
-            );
-          })}
+          {this.props.contact.map(contact => (
+            <li key={contact.phone}>
+              <span className={"name"}>{contact.name}</span>
+              <span className={"phone"}>{contact.phone}</span>
+              <span className={"clearfix"}></span>
+            </li>
+          ))}
         </ul>
       </div>
     );

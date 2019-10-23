@@ -21,7 +21,7 @@ export default class Contacts extends Component {
                 <h1>Contacts Component</h1>
                 <Form/>
                 {/* this is grabbing from "contact array" */}
-                <List contacts= {this.state.contact} />
+                <List contact= {this.state.contact} />
             </div>
         )
     }
