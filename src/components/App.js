@@ -17,8 +17,8 @@ class App extends Component {
   };
   render() {
     return (
-      <div className="Phonebook App">
-        <Contacts />
+      <div className="App">
+        <Contacts contact={this.state.contact}/>
       </div>
     );
   }
