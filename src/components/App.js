@@ -3,6 +3,10 @@ import Contacts from "./Contacts";
 import "./App.css";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.addContact = this.addContact.bind(this);
+  }
   state = {
     contact: [
       {
@@ -15,10 +19,18 @@ class App extends Component {
       }
     ]
   };
+
+  addContact(contact) {
+   console.log('incoming contact: ', contact)
+  }
+
   render() {
     return (
       <div className="App">
-        <Contacts contact={this.state.contact}/>
+        <Contacts
+          contact={this.state.contact}
+          addContact={this.addContact}
+        />
       </div>
     );
   }

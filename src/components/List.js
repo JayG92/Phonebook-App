@@ -7,7 +7,7 @@ export default class List extends Component {
     contact: PropTypes.array.isRequired
   };
   render() {
-    console.log("Incoming props", this.props);
+    // console.log("Incoming props", this.props);
     return (
       <div className={"listArea"}>
         <input
