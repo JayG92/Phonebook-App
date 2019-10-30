@@ -1,3 +1,5 @@
+Currenlty in development...
+
 # Phonebook-App
 Simple Phonebook App with React.js (CRUD)
 
