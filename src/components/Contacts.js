@@ -1,23 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import List from "./List";
 import Form from "./Form";
-import PropTypes from "prop-types"
 
-export default class Contacts extends Component {
-    static propTypes = {
-        contact: PropTypes.array.isRequired,
-        addContact: PropTypes.func
-    }
+const Contacts = props => (
+  <div>
+    {/* Sending the states to the List component */}
+    <List contacts={props.contacts} />
+    <Form addContact={props.addContact} />
+  </div>
+);
 
-  render() {
-    // console.log("Props coming from Contacts Component: ", this.props);
-    return (
-      <div>
-        <h1>Contacts Component</h1>
-        {/* this is grabbing from "contact array" */}
-        <List contact={this.props.contact} />
-        <Form addContact={this.props.addContact} />
-      </div>
-    );
-  }
-}
+Contacts.prototypes = {
+  contacts: PropTypes.array.isRequired,
+  addContact: PropTypes.func
+};
+
+export default Contacts;

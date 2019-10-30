@@ -1,57 +1,69 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 class Form extends Component {
   constructor() {
     super();
-    // Method Binding //
+    //    bind the method
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-  };
-static propTypes = {
+  }
+
+  static propTypes = {
+    // And incoming function from parent
     addContact: PropTypes.func
-};
+  };
 
   state = {
     name: "",
     phone: ""
   };
 
-  onSubmit(e){
-    e.preventDefault();
-    this.props.addContact({
-        ...this.state
+  onChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
     });
   }
 
-  onChange(e) {
-    //   allows us to capture whats being typed in forms //
+  onSubmit(event) {
+    // Stoping the default behavior
+    event.preventDefault();
+
+    // Sending data
+    this.props.addContact({
+      ...this.state
+    });
+
+    // Clearing after submit
     this.setState({
-      [e.target.name]: e.target.value
+      name: "",
+      phone: ""
     });
   }
 
   render() {
     return (
       <div>
+          <h1>Add a Contact</h1>
         <form onSubmit={this.onSubmit}>
-          <h3>Add New Contact</h3>
           <input
             name="name"
             id="name"
-            placeholder="Enter Name"
             value={this.state.name}
             onChange={this.onChange}
+            placeholder="Enter a name"
           />
           <br />
+
           <input
             name="phone"
             id="phone"
-            placeholder="Enter a Phone number"
             value={this.state.phone}
             onChange={this.onChange}
+            placeholder="Enter a phone number"
           />
-          <button>Add Contact</button>
+          <br></br>
+          <button>Add</button>
         </form>
       </div>
     );

@@ -37,3 +37,7 @@ input {
 .clearfix {
     clear: both;
 }
+
+h2{
+    text-align: center;
+}
